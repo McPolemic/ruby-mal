@@ -38,4 +38,4 @@ module Mal
   end
 end
 
-Mal.main_loop
+Mal.main_loop if $0 == __FILE__
