@@ -57,12 +57,14 @@ def rep(input)
 end
 
 def main_loop
-  loop do
-    print('user> ')
-    input = readline_get_input
-    exit if input.nil?
-    rep(input)
+  while input = readline_get_input
+    begin
+      rep(input)
+    rescue Exception => e
+      puts "Error: #{e}"
+      puts "\t#{e.backtrace.join("\n\t")}"
+    end
   end
 end
 
-main_loop
+main_loop if $0 == __FILE__
