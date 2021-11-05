@@ -1,4 +1,4 @@
-require 'stringio'
+require_relative 'spec_helper'
 require_relative '../step2_eval'
 
 RSpec.describe 'Step2' do
@@ -65,15 +65,4 @@ RSpec.describe 'Step2' do
       end
     end
   end
-end
-
-def run(input_program)
-  output = StringIO.new
-  old_stdout = $stdout
-  $stdout = output
-
-  rep(input_program)
-
-  $stdout = old_stdout
-  output.string.chomp
 end
